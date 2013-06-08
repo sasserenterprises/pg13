@@ -11,7 +11,27 @@
 <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
-<script type="text/javascript" src="phonegap.js"></script>  
+<script type="text/javascript" src="phonegap.js"></script> 
+<script type="text/javascript">
+var deviceReadyDeferred = $.Deferred();
+var jqmReadyDeferred = $.Deferred();
+
+document.addEventListener("deviceReady", deviceReady, false);
+
+function deviceReady() {
+  deviceReadyDeferred.resolve();
+}
+
+$(document).one("mobileinit", function () {
+  jqmReadyDeferred.resolve();
+});
+
+$.when(deviceReadyDeferred, jqmReadyDeferred).then(doWhenBothFrameworksLoaded);
+
+function doWhenBothFrameworksLoaded() {
+  // TBD
+}
+</script> 
 <title>GOGO INVOICE</title>
 
 </head>
