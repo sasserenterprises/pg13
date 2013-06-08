@@ -4,6 +4,10 @@ http://www.hashemian.com/
 Revised to jQuery June 8, 2013 by Daniel T Sasser II
 http://www.s2-designs.com
 */
+function onLoad() {
+document.addEventListener("deviceready", onDeviceReady, false);
+
+
 
 var TargetDate = "06/09/2013 11:59 AM";
 var BackColor = "#f9f9f9";
@@ -76,3 +80,4 @@ else
   var ddiff = new Date(dthen-dnow);
 var gsecs = Math.floor(ddiff.valueOf()/1000);
 CountBack(gsecs);
+}
